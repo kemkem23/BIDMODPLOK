@@ -1,0 +1,120 @@
+.all-teams-section {
+  border: 2px solid #999;
+  padding: 20px;
+  background: #f5f5f5;
+  margin-top: 10px;
+  text-align: center;
+}
+.all-teams-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 0 16px 0;
+  color: #222;
+}
+.all-teams-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+.all-teams-table th,
+.all-teams-table td {
+  border: 1px solid #999;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.all-teams-table th {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+.all-teams-table td.has-time {
+  background: #4CAF50;
+  color: #fff;
+  font-weight: bold;
+}
+.all-teams-table td.has-value {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* Team name column — click to open detail */
+.team-name-cell {
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.team-name-cell.clickable-cell {
+  cursor: pointer;
+  color: #1976D2;
+  text-decoration: underline;
+}
+.team-name-cell.clickable-cell:hover {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
+
+/* Editable input styles */
+.edit-time-input,
+.edit-field-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 4px 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+}
+.edit-time-input:focus,
+.edit-field-input:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 3px rgba(33,150,243,0.4);
+}
+/* Remove spinner arrows from number inputs */
+.edit-time-input::-webkit-inner-spin-button,
+.edit-time-input::-webkit-outer-spin-button,
+.edit-field-input::-webkit-inner-spin-button,
+.edit-field-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.edit-time-input[type='number'],
+.edit-field-input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Save section */
+.save-section {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.save-btn {
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #2196F3;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.save-btn:hover {
+  background: #1976D2;
+}
+.save-msg {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.save-success {
+  color: #4CAF50;
+}
+.save-error {
+  color: #f44336;
+}

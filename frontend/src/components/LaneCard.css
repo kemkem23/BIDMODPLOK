@@ -1,0 +1,53 @@
+.lane-card {
+  border: 2px solid #999;
+  padding: 12px;
+  background: #fff;
+  text-align: center;
+}
+.lane-label {
+  border: 2px solid #999;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: #f0f0f0;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+.lane-team-info {
+  margin-bottom: 12px;
+}
+.lane-team-name {
+  border: 2px solid #999;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: #f5f5f5;
+}
+.lane-photo-placeholder {
+  margin-top: 8px;
+  color: #888;
+  font-weight: bold;
+}
+.lane-team-photo {
+  max-width: 100%;
+  margin-top: 8px;
+}
+.lane-stats {
+  border: 2px solid #999;
+  padding: 10px;
+  text-align: left;
+  background: #fafafa;
+}
+.lane-stats-title {
+  margin: 0 0 8px 0;
+  font-weight: bold;
+}
+.lane-stats-table {
+  width: 100%;
+}
+.lane-stats-table td {
+  padding: 2px 8px;
+}
+.lane-stats-table td:first-child {
+  font-weight: bold;
+}

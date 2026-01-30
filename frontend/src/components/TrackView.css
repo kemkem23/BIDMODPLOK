@@ -1,0 +1,14 @@
+.track-view {
+  text-align: center;
+}
+.track-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 0 16px 0;
+  color: #222;
+}
+.track-lanes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}

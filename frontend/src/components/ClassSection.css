@@ -1,0 +1,23 @@
+.class-section {
+  margin-bottom: 12px;
+}
+.class-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0 0 4px 0;
+  color: #222;
+}
+.class-entries {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+.class-entry {
+  font-size: 0.95rem;
+  padding: 2px 0;
+}
+.entry-team {
+  font-weight: bold;
+}
+.entry-time {
+  color: #555;
+}

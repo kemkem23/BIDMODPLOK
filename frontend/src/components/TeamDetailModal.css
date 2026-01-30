@@ -1,0 +1,139 @@
+.team-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.team-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  min-width: 360px;
+  max-width: 480px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.team-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+}
+.team-modal-close:hover {
+  color: #333;
+}
+
+.team-modal-title {
+  margin: 0 0 20px 0;
+  text-align: center;
+  color: #222;
+}
+
+.team-modal-photo-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.team-modal-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+}
+.team-modal-photo-placeholder {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  border-radius: 8px;
+  border: 2px dashed #ccc;
+  color: #999;
+  font-size: 0.95rem;
+}
+
+.team-modal-field {
+  margin-bottom: 14px;
+}
+.team-modal-field label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+  color: #444;
+  font-size: 0.9rem;
+}
+.team-modal-field input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.team-modal-field input:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 3px rgba(33, 150, 243, 0.4);
+}
+.team-modal-value {
+  display: block;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: #222;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.team-modal-actions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.team-modal-save {
+  padding: 10px 32px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.team-modal-save:hover {
+  background: #388E3C;
+}
+.team-modal-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.team-modal-msg {
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+.team-modal-success {
+  color: #4CAF50;
+}
+.team-modal-error {
+  color: #f44336;
+}

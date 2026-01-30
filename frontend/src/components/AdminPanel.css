@@ -1,0 +1,91 @@
+.admin-panel {
+  border: 2px solid #999;
+  padding: 16px;
+  background: #fff;
+  margin-top: 10px;
+}
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.admin-header h3 {
+  margin: 0;
+}
+.admin-logout {
+  padding: 6px 16px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.admin-race-info {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.admin-race-info p {
+  margin: 4px 0;
+}
+.admin-times-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.admin-lane h4 {
+  margin: 0 0 8px 0;
+}
+.admin-time-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.admin-time-field label {
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.admin-time-field input {
+  width: 100px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.admin-status {
+  margin-bottom: 16px;
+}
+.admin-status select {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+.admin-update-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.admin-update-btn:hover {
+  background: #1976D2;
+}
+.admin-message {
+  margin-top: 10px;
+  padding: 8px;
+  background: #e8f5e9;
+  border-radius: 4px;
+  text-align: center;
+  color: #2e7d32;
+  font-weight: bold;
+}
