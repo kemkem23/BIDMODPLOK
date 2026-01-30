@@ -1,0 +1,123 @@
+.admin-track-pane {
+  padding: 0 0 8px 0;
+}
+
+.admin-track-lanes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-track-lane {
+  border: 2px solid #999;
+  padding: 12px;
+  background: #fff;
+}
+
+.admin-track-lane-label {
+  border: 2px solid #999;
+  padding: 6px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: #eee;
+  margin-bottom: 10px;
+}
+
+.admin-track-car-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.4rem;
+  text-align: center;
+  border: 2px solid #999;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.admin-track-not-found {
+  text-align: center;
+  color: #c00;
+  font-weight: bold;
+  padding: 8px 0;
+}
+
+.admin-track-team-name {
+  border: 2px solid #999;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: #f9f9f9;
+  margin-bottom: 10px;
+}
+
+.admin-track-time-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.admin-track-time-field label {
+  min-width: 60px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.admin-track-time-field input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.admin-track-save-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  background: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-track-save-btn:hover {
+  background: #1976D2;
+}
+
+.admin-track-save-btn:disabled {
+  background: #90CAF9;
+  cursor: default;
+}
+
+.admin-track-msg {
+  text-align: center;
+  padding: 6px;
+  margin-top: 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.admin-track-msg.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.admin-track-msg.error {
+  background: #ffebee;
+  color: #c62828;
+}
+
+@media (max-width: 480px) {
+  .admin-track-car-input {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .admin-track-lane {
+    padding: 8px;
+  }
+}

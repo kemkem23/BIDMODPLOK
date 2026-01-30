@@ -2,17 +2,15 @@ import React, { useState, useCallback } from 'react';
 import './App.css';
 import './styles/layout.css';
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
 import VideoSection from './components/VideoSection';
 import TrackView from './components/TrackView';
 import LeaderboardView from './components/LeaderboardView';
 import LoginModal from './components/LoginModal';
-import AdminPanel from './components/AdminPanel';
+import AdminTrackPane from './components/AdminTrackPane';
 import ErrorBoundary from './components/ErrorBoundary';
 import useAuth from './hooks/useAuth';
 
 function App() {
-  const [view, setView] = useState('TRACK');
   const [showLogin, setShowLogin] = useState(false);
   const { token, isAdmin, role, username, login, logout } = useAuth();
 
@@ -26,20 +24,28 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="app-layout">
-        <div className="main-content">
-          <Header />
-          <VideoSection />
-          <div className="content-area">
-            {view === 'TRACK' && <TrackView />}
-            {view === 'LEADERBOARD' && <LeaderboardView isAdmin={isAdmin} role={role} />}
-          </div>
-          {isAdmin && <AdminPanel token={token} role={role} username={username} onLogout={logout} />}
-        </div>
-        <Sidebar
-          activeView={view}
-          onViewChange={setView}
-          onLoginClick={handleLoginClick}
-        />
+        {isAdmin ? (
+          <>
+            <div className="admin-bar">
+              <span>Admin: {username}</span>
+              <button className="admin-logout" onClick={logout}>ออกจากระบบ</button>
+            </div>
+            <AdminTrackPane />
+            <LeaderboardView isAdmin={isAdmin} role={role} />
+          </>
+        ) : (
+          <>
+            <Header />
+            <VideoSection />
+            <div className="content-area">
+              <TrackView />
+              <LeaderboardView isAdmin={isAdmin} role={role} />
+            </div>
+            <button className="bottom-login-btn" onClick={handleLoginClick}>
+              ทีมงาน login
+            </button>
+          </>
+        )}
         {showLogin && !isAdmin && (
           <LoginModal
             onClose={handleLoginClose}
