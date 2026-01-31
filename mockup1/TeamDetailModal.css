@@ -1,0 +1,324 @@
+/* ============================================================
+   TeamDetailModal.css — Racing / eSport / Speed UI Theme
+   Matte black, neon red borders, metallic accents, sci-fi panels
+   ============================================================ */
+
+/* --- Overlay --- */
+.team-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: overlayFadeIn 0.25s ease-out;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --- Modal Panel (sci-fi cut corners via clip-path) --- */
+.team-modal {
+  background: #111111;
+  padding: 36px 32px 28px;
+  min-width: 380px;
+  max-width: 500px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: #FFFFFF;
+  font-family: 'Kanit', 'Bebas Neue', Arial, sans-serif;
+
+  /* Double neon-red border effect */
+  border: 2px solid #D10000;
+  outline: 3px solid #A00000;
+  outline-offset: 4px;
+  border-radius: 2px;
+
+  /* Sci-fi cut corners */
+  clip-path: polygon(
+    0 16px,
+    16px 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
+
+  /* Drop shadow — deep red glow underneath */
+  box-shadow:
+    0 0 30px rgba(209, 0, 0, 0.35),
+    0 8px 40px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(191, 195, 199, 0.08);
+
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Scrollbar styling */
+.team-modal::-webkit-scrollbar {
+  width: 6px;
+}
+.team-modal::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+.team-modal::-webkit-scrollbar-thumb {
+  background: #A00000;
+  border-radius: 3px;
+}
+
+/* Metallic corner accents (top-left & bottom-right) via pseudo-elements */
+.team-modal::before,
+.team-modal::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+}
+.team-modal::before {
+  top: 2px;
+  left: 2px;
+  border-top: 3px solid #BFC3C7;
+  border-left: 3px solid #BFC3C7;
+}
+.team-modal::after {
+  bottom: 2px;
+  right: 2px;
+  border-bottom: 3px solid #BFC3C7;
+  border-right: 3px solid #BFC3C7;
+}
+
+/* --- Close Button --- */
+.team-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #FFFFFF;
+  line-height: 1;
+  text-shadow: 0 0 6px rgba(209, 0, 0, 0.6);
+  transition: color 0.2s, text-shadow 0.2s, transform 0.15s;
+  z-index: 2;
+}
+.team-modal-close:hover {
+  color: #D10000;
+  text-shadow: 0 0 14px rgba(209, 0, 0, 0.9);
+  transform: scale(1.15);
+}
+
+/* --- Title --- */
+.team-modal-title {
+  margin: 0 0 24px 0;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: 'Bebas Neue', 'Kanit', Arial, sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 8px rgba(209, 0, 0, 0.7),
+    0 0 20px rgba(209, 0, 0, 0.35);
+  border-bottom: 1px solid #A00000;
+  padding-bottom: 14px;
+}
+
+/* --- Photo Section --- */
+.team-modal-photo-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.team-modal-photo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid #D10000;
+  box-shadow:
+    0 0 12px rgba(209, 0, 0, 0.5),
+    0 0 24px rgba(209, 0, 0, 0.2);
+  transition: box-shadow 0.3s;
+}
+.team-modal-photo:hover {
+  box-shadow:
+    0 0 18px rgba(209, 0, 0, 0.7),
+    0 0 36px rgba(209, 0, 0, 0.35);
+}
+
+.team-modal-photo-placeholder {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+  border-radius: 4px;
+  border: 2px dashed #A00000;
+  color: #999999;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* --- Form Fields --- */
+.team-modal-field {
+  margin-bottom: 16px;
+}
+
+.team-modal-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #BFC3C7;
+  font-size: 0.9rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-family: 'Bebas Neue', 'Kanit', Arial, sans-serif;
+}
+
+.team-modal-field input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  font-family: 'Kanit', Arial, sans-serif;
+  color: #FFFFFF;
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 2px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.team-modal-field input::placeholder {
+  color: #999999;
+}
+.team-modal-field input:focus {
+  outline: none;
+  border-color: #D10000;
+  box-shadow:
+    0 0 6px rgba(209, 0, 0, 0.5),
+    0 0 16px rgba(209, 0, 0, 0.15);
+}
+
+/* --- Read-only Value --- */
+.team-modal-value {
+  display: block;
+  padding: 10px 14px;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background: #1a1a1a;
+  border-radius: 2px;
+  border-left: 3px solid #A00000;
+  font-family: 'Kanit', Arial, sans-serif;
+}
+
+/* --- Upload Button (Red Racing Style) --- */
+.team-modal-upload-btn {
+  padding: 9px 22px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Bebas Neue', 'Kanit', Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #D10000 0%, #A00000 100%);
+  border: 1px solid #D10000;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(209, 0, 0, 0.3);
+}
+.team-modal-upload-btn:hover {
+  background: linear-gradient(180deg, #E52020 0%, #C40000 100%);
+  box-shadow: 0 0 14px rgba(209, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+.team-modal-upload-btn:active {
+  transform: translateY(0);
+}
+.team-modal-upload-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- Actions Bar --- */
+.team-modal-actions {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid #222222;
+}
+
+/* --- Save Button (Neon Green) --- */
+.team-modal-save {
+  padding: 11px 38px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Bebas Neue', 'Kanit', Arial, sans-serif;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #0B0B0B;
+  background: #39FF14;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow:
+    0 0 10px rgba(57, 255, 20, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.team-modal-save:hover {
+  background: #4DFF33;
+  box-shadow:
+    0 0 20px rgba(57, 255, 20, 0.6),
+    0 0 40px rgba(57, 255, 20, 0.2);
+  transform: translateY(-1px);
+}
+.team-modal-save:active {
+  transform: translateY(0);
+}
+.team-modal-save:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- Status Messages --- */
+.team-modal-msg {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.team-modal-success {
+  color: #39FF14;
+  text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+}
+.team-modal-error {
+  color: #FF4444;
+  text-shadow: 0 0 8px rgba(209, 0, 0, 0.5);
+}

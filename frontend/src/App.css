@@ -37,13 +37,13 @@ body {
 }
 .qr-label {
   margin: 8px 0 0;
-  font-size: 0.85rem;
-  color: #666;
+  font-size: 0.95rem;
+  color: #444;
 }
 
 .bottom-login-btn {
   padding: 12px 24px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: 2px solid #999;
   background: #f0f0f0;
   cursor: pointer;

@@ -1,0 +1,150 @@
+/* ============================================================
+   layout.css  --  Racing / eSport / Speed UI  (Mockup 1)
+   ============================================================ */
+
+/* ---------- Main App Layout ---------- */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px;
+  gap: 12px;
+  min-height: 100vh;
+  background: transparent;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Faint side rails -- gives a "cockpit HUD" border feel */
+.app-layout::before,
+.app-layout::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  z-index: 50;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--red-dark, #A00000) 15%,
+      var(--red, #D10000) 50%,
+      var(--red-dark, #A00000) 85%,
+      transparent 100%
+    );
+  opacity: 0.18;
+}
+
+.app-layout::before { left: 0; }
+.app-layout::after  { right: 0; }
+
+/* ---------- Content Area ---------- */
+.content-area {
+  border: var(--border-red, 2px solid #D10000);
+  border-radius: var(--radius, 6px);
+  padding: 24px;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+
+  /* Matte black panel */
+  background:
+    linear-gradient(
+      170deg,
+      var(--bg-panel, #111111) 0%,
+      var(--bg-black, #050505) 100%
+    );
+
+  /* Red neon border glow + metallic inset highlight */
+  box-shadow:
+    var(--shadow-red, 0 0 12px rgba(209,0,0,0.55)),
+    var(--shadow-panel, 0 4px 20px rgba(0,0,0,0.7)),
+    inset 0 1px 0 rgba(191, 195, 199, 0.06);
+}
+
+/* Top metallic edge highlight */
+.content-area::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--metallic, #BFC3C7),
+    transparent
+  );
+  opacity: 0.35;
+}
+
+/* Diagonal speed-line texture inside panels */
+.content-area::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 30px,
+      rgba(255, 255, 255, 0.012) 30px,
+      rgba(255, 255, 255, 0.012) 31px
+    );
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .app-layout {
+    padding: 6px;
+    gap: 8px;
+  }
+
+  .content-area {
+    padding: 16px 12px;
+    min-height: 220px;
+  }
+
+  /* hide the side rails on mobile */
+  .app-layout::before,
+  .app-layout::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-layout {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .content-area {
+    padding: 12px 8px;
+    border-radius: 4px;
+  }
+}
+
+@media (min-width: 961px) {
+  .app-layout {
+    max-width: 1200px;
+    padding: 16px 24px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app-layout {
+    max-width: 1400px;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .content-area {
+    padding: 24px;
+  }
+}

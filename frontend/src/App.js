@@ -11,6 +11,7 @@ import LoginModal from './components/LoginModal';
 import AdminTrackPane from './components/AdminTrackPane';
 import ErrorBoundary from './components/ErrorBoundary';
 import useAuth from './hooks/useAuth';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -74,6 +75,7 @@ function App() {
             onLoginSuccess={handleLoginSuccess}
           />
         )}
+        <ThemeToggle />
       </div>
     </ErrorBoundary>
   );

@@ -1,0 +1,324 @@
+/* ============================================================
+   AllTeamsTable.css — Racing / eSport / Speed UI Mockup
+   Theme: Matte black, red accents, neon green highlights
+   Fonts: Kanit (Thai), Bebas Neue (English headings)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@300;400;500;600;700&display=swap');
+
+/* ── Section Container ──────────────────────────────────────── */
+.all-teams-section {
+  background: #0B0B0B;
+  border: 2px solid #D10000;
+  border-radius: 6px;
+  padding: 20px;
+  margin-top: 12px;
+  text-align: center;
+  overflow-x: auto;
+  font-family: 'Kanit', sans-serif;
+  color: #FFFFFF;
+  box-shadow:
+    0 0 8px rgba(209, 0, 0, 0.35),
+    0 0 24px rgba(209, 0, 0, 0.15),
+    0 4px 20px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+/* Top glow accent line */
+.all-teams-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D10000 30%, #39FF14 50%, #D10000 70%, transparent);
+  opacity: 0.8;
+  border-radius: 6px 6px 0 0;
+}
+
+/* ── Section Title ──────────────────────────────────────────── */
+.all-teams-title {
+  font-family: 'Bebas Neue', 'Kanit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 18px 0;
+  color: #FFFFFF;
+  text-shadow:
+    0 0 4px rgba(209, 0, 0, 0.9),
+    0 0 12px rgba(209, 0, 0, 0.6),
+    0 0 24px rgba(160, 0, 0, 0.4),
+    2px 2px 0 #A00000,
+    -1px -1px 0 #A00000;
+}
+
+/* ── Table ──────────────────────────────────────────────────── */
+.all-teams-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #0B0B0B;
+  border: 1px solid #A00000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* ── Table Cells (th + td) ──────────────────────────────────── */
+.all-teams-table th,
+.all-teams-table td {
+  border-right: 1px solid #A00000;
+  border-bottom: 1px solid #A00000;
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: 'Kanit', sans-serif;
+  color: #FFFFFF;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Remove right border on last column */
+.all-teams-table th:last-child,
+.all-teams-table td:last-child {
+  border-right: none;
+}
+
+/* Remove bottom border on last row */
+.all-teams-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Header Row ─────────────────────────────────────────────── */
+.all-teams-table th {
+  background: #111111;
+  font-family: 'Bebas Neue', 'Kanit', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #BFC3C7;
+  border-bottom: 2px solid #D10000;
+  border-right-color: #D10000;
+  padding: 12px 14px;
+  position: relative;
+}
+
+/* Active / selected column header — neon green */
+.all-teams-table th.active,
+.all-teams-table th.selected,
+.all-teams-table th[data-active="true"] {
+  background: #39FF14;
+  color: #0B0B0B;
+  text-shadow: none;
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.4);
+}
+
+/* ── Data Rows ──────────────────────────────────────────────── */
+.all-teams-table tbody tr {
+  background: #0B0B0B;
+  transition: background 0.15s ease;
+}
+
+.all-teams-table tbody tr:nth-child(even) {
+  background: #1A1A1A;
+}
+
+.all-teams-table tbody tr:hover {
+  background: #1A1010;
+}
+
+/* ── Best Time Cells (has-time) — neon green bg ─────────────── */
+.all-teams-table td.has-time {
+  background: #39FF14;
+  color: #0B0B0B;
+  font-weight: 700;
+  text-shadow: none;
+  box-shadow: inset 0 0 6px rgba(57, 255, 20, 0.3);
+}
+
+/* ── Value Cells (has-value) — neon green text ──────────────── */
+.all-teams-table td.has-value {
+  color: #2DFF57;
+  font-weight: 700;
+  text-shadow: 0 0 4px rgba(45, 255, 87, 0.4);
+}
+
+/* ── Team Name Cell ─────────────────────────────────────────── */
+.team-name-cell {
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 500;
+  color: #FFFFFF;
+  font-family: 'Kanit', sans-serif;
+  padding-left: 16px;
+}
+
+/* Clickable team names — white base, red hover (not blue) */
+.team-name-cell.clickable-cell {
+  cursor: pointer;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-color: #6D6D6D;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, background 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.team-name-cell.clickable-cell:hover {
+  background: #2A0000;
+  color: #FF3333;
+  text-decoration-color: #D10000;
+}
+
+.team-name-cell.clickable-cell:active {
+  background: #3A0000;
+  color: #FF5555;
+}
+
+/* ── Edit Inputs (dark theme) ───────────────────────────────── */
+.edit-time-input,
+.edit-field-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #6D6D6D;
+  border-radius: 3px;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+  background: #151515;
+  color: #FFFFFF;
+  font-weight: 500;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-time-input::placeholder,
+.edit-field-input::placeholder {
+  color: #6D6D6D;
+}
+
+.edit-time-input:focus,
+.edit-field-input:focus {
+  outline: none;
+  border-color: #D10000;
+  box-shadow:
+    0 0 4px rgba(209, 0, 0, 0.5),
+    0 0 12px rgba(209, 0, 0, 0.2);
+  background: #1A1A1A;
+}
+
+/* ── Save Section ───────────────────────────────────────────── */
+.save-section {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Red racing save button */
+.save-btn {
+  padding: 12px 40px;
+  font-size: 1rem;
+  font-family: 'Bebas Neue', 'Kanit', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #D10000 0%, #A00000 100%);
+  border: 1px solid #D10000;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+  box-shadow:
+    0 2px 8px rgba(209, 0, 0, 0.4),
+    0 0 12px rgba(209, 0, 0, 0.15);
+}
+
+.save-btn:hover {
+  background: linear-gradient(180deg, #E52020 0%, #C00000 100%);
+  box-shadow:
+    0 2px 12px rgba(209, 0, 0, 0.6),
+    0 0 20px rgba(209, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.save-btn:active {
+  background: linear-gradient(180deg, #A00000 0%, #800000 100%);
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(209, 0, 0, 0.3);
+}
+
+/* ── Save Messages ──────────────────────────────────────────── */
+.save-msg {
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Kanit', sans-serif;
+}
+
+.save-success {
+  color: #39FF14;
+  text-shadow: 0 0 6px rgba(57, 255, 20, 0.4);
+}
+
+.save-error {
+  color: #FF3333;
+  text-shadow: 0 0 6px rgba(255, 51, 51, 0.4);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .all-teams-section {
+    padding: 12px;
+  }
+
+  .all-teams-title {
+    font-size: 1.7rem;
+  }
+
+  .all-teams-table th,
+  .all-teams-table td {
+    padding: 8px 8px;
+    font-size: 0.9rem;
+  }
+
+  .save-btn {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .all-teams-section {
+    padding: 8px;
+    border-width: 1px;
+  }
+
+  .all-teams-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+  }
+
+  .all-teams-table th,
+  .all-teams-table td {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+
+  .team-name-cell {
+    padding-left: 8px;
+  }
+
+  .save-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .all-teams-table th,
+  .all-teams-table td {
+    font-size: 1.2rem;
+    padding: 12px 16px;
+  }
+}

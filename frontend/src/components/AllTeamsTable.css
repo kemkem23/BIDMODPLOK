@@ -21,8 +21,8 @@
   }
   .all-teams-table th,
   .all-teams-table td {
-    padding: 4px 6px;
-    font-size: 0.75rem;
+    padding: 6px 8px;
+    font-size: 0.9rem;
   }
 }
 .all-teams-table {
@@ -33,21 +33,21 @@
 .all-teams-table th,
 .all-teams-table td {
   border: 1px solid #999;
-  padding: 8px 12px;
+  padding: 10px 14px;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
 }
 .all-teams-table th {
-  background: #f0f0f0;
+  background: #e0e0e0;
   font-weight: bold;
 }
 .all-teams-table td.has-time {
-  background: #4CAF50;
+  background: #2E7D32;
   color: #fff;
   font-weight: bold;
 }
 .all-teams-table td.has-value {
-  color: #4CAF50;
+  color: #1B5E20;
   font-weight: bold;
 }
 
@@ -75,7 +75,7 @@
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 4px 6px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-align: center;
   background: transparent;
   color: inherit;
@@ -127,8 +127,16 @@
   font-weight: bold;
 }
 .save-success {
-  color: #4CAF50;
+  color: #2E7D32;
 }
 .save-error {
   color: #f44336;
+}
+
+@media (min-width: 1200px) {
+  .all-teams-table th,
+  .all-teams-table td {
+    font-size: 1.2rem;
+    padding: 12px 16px;
+  }
 }

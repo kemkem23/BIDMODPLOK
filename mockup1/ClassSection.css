@@ -1,0 +1,55 @@
+/* ============================================================
+   ClassSection.css — Racing / Dark Theme (Mockup 1)
+   ============================================================ */
+
+.class-section {
+  background: transparent;
+  margin-bottom: 24px;
+  padding: 12px 0;
+}
+
+.class-name {
+  color: #FFFFFF;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #D10000;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px rgba(209, 0, 0, 0.3);
+}
+
+.class-entry {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.entry-rank {
+  color: #BFC3C7;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+.entry-name {
+  color: #FFFFFF;
+}
+
+.entry-time {
+  color: #39FF14;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+.entry-time.no-time {
+  color: #FF4444;
+}
+
+@media (max-width: 480px) {
+  .class-name { font-size: 1.2rem; }
+  .class-entry { font-size: 1rem; padding: 5px 0; }
+  .entry-time { font-size: 1.05rem; }
+}

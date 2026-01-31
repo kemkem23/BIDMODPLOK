@@ -1,0 +1,100 @@
+/* ============================================================
+   LeaderboardView.css — Racing / eSport / Speed UI Mockup
+   Theme: Matte black, red accents, neon green highlights
+   Fonts: Kanit (Thai), Bebas Neue (English headings)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@300;400;500;600;700&display=swap');
+
+/* ── Container ─────────────────────────────────────────────── */
+.leaderboard-view {
+  text-align: center;
+  background: #0B0B0B;
+  min-height: 100vh;
+  padding: 24px 16px;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* ── Title ──────────────────────────────────────────────────── */
+.leaderboard-title {
+  font-family: 'Bebas Neue', 'Kanit', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  color: #FFFFFF;
+  text-shadow:
+    0 0 4px rgba(209, 0, 0, 0.9),
+    0 0 12px rgba(209, 0, 0, 0.6),
+    0 0 24px rgba(160, 0, 0, 0.4),
+    2px 2px 0 #A00000,
+    -1px -1px 0 #A00000;
+  position: relative;
+}
+
+.leaderboard-title::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D10000, #39FF14, #D10000, transparent);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ── Content Panel ──────────────────────────────────────────── */
+.leaderboard-content {
+  background: #0B0B0B;
+  border: 2px solid #D10000;
+  border-radius: 6px;
+  padding: 20px;
+  text-align: left;
+  color: #FFFFFF;
+  font-family: 'Kanit', sans-serif;
+  box-shadow:
+    0 0 8px rgba(209, 0, 0, 0.35),
+    0 0 24px rgba(209, 0, 0, 0.15),
+    0 4px 20px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top-edge glow line */
+.leaderboard-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D10000 30%, #39FF14 50%, #D10000 70%, transparent);
+  opacity: 0.8;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .leaderboard-title {
+    font-size: 2rem;
+  }
+
+  .leaderboard-content {
+    padding: 12px;
+  }
+
+  .leaderboard-view {
+    padding: 16px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leaderboard-title {
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+  }
+
+  .leaderboard-content {
+    padding: 8px;
+    border-width: 1px;
+  }
+}

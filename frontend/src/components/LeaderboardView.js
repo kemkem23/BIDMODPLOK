@@ -12,7 +12,7 @@ function LeaderboardView({ isAdmin, role }) {
 
   return (
     <div className="leaderboard-view">
-      <h2 className="leaderboard-title">LEADER BOARD</h2>
+      <h2 className="leaderboard-title">LEADERBOARD</h2>
       <div className="leaderboard-content">
         {classes.map((cls) => (
           <ClassSection key={cls.className} raceClass={cls} />

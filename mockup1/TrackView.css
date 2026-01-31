@@ -1,0 +1,159 @@
+/* =============================================================
+   TrackView.css — Racing / eSport / Speed UI Mockup
+   Theme: Matte black, red neon accents, condensed racing type
+   Fonts: Kanit (Thai), Bebas Neue (English headings)
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:wght@300;400;600;700&display=swap');
+
+/* ── Track View container ── */
+.track-view {
+  text-align: center;
+  background: #0B0B0B;
+  padding: 24px 20px 40px;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* ── Track Title: condensed racing font, red stroke via text-shadow ── */
+.track-title {
+  font-family: 'Bebas Neue', 'Kanit', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 28px 0;
+  color: #FFFFFF;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+
+  /* Red stroke / outline effect using multi-layer text-shadow */
+  text-shadow:
+    /* Red stroke — 8 directional offsets */
+    -2px -2px 0 #A00000,
+     2px -2px 0 #A00000,
+    -2px  2px 0 #A00000,
+     2px  2px 0 #A00000,
+     0   -2px 0 #A00000,
+     0    2px 0 #A00000,
+    -2px  0   0 #A00000,
+     2px  0   0 #A00000,
+    /* Outer glow */
+     0 0 20px rgba(209, 0, 0, 0.5),
+     0 0 40px rgba(209, 0, 0, 0.2);
+
+  /* Drop shadow on the title block */
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+}
+
+/* Decorative underline: red neon bar under the title */
+.track-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #A00000 15%,
+    #D10000 50%,
+    #A00000 85%,
+    transparent 100%
+  );
+  border-radius: 2px;
+  box-shadow:
+    0 0 8px rgba(209, 0, 0, 0.6),
+    0 0 20px rgba(209, 0, 0, 0.25);
+}
+
+/* Metallic side accents flanking the title */
+.track-title::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -40px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #BFC3C7, #6D6D6D);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(191, 195, 199, 0.3);
+}
+
+/* ── Lane Grid ── */
+.track-lanes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Responsive: mobile ── */
+@media (max-width: 480px) {
+  .track-view {
+    padding: 14px 8px 24px;
+  }
+  .track-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+  .track-title::before {
+    display: none;
+  }
+  .track-title::after {
+    width: 80%;
+  }
+  .track-lanes {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ── Responsive: small tablets ── */
+@media (min-width: 481px) and (max-width: 768px) {
+  .track-view {
+    padding: 18px 14px 32px;
+  }
+  .track-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .track-lanes {
+    gap: 18px;
+  }
+}
+
+/* ── Responsive: tablets / landscape ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .track-title {
+    font-size: 2.3rem;
+  }
+  .track-lanes {
+    gap: 20px;
+  }
+}
+
+/* ── Responsive: large screens — expand to wider grid ── */
+@media (min-width: 1200px) {
+  .track-title {
+    font-size: 3.2rem;
+    letter-spacing: 0.22em;
+    margin-bottom: 36px;
+  }
+  .track-lanes {
+    gap: 32px;
+  }
+}
+
+/* ── Responsive: ultrawide — optional 3-column for 3+ lanes ── */
+@media (min-width: 1600px) {
+  .track-lanes {
+    max-width: 1800px;
+  }
+}

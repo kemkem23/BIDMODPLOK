@@ -118,7 +118,7 @@ function AllTeamsTable({ allResults, isAdmin, role }) {
 
   return (
     <div className="all-teams-section">
-      <h2 className="all-teams-title">All</h2>
+      <h2 className="all-teams-title">ALL RESULT DATA</h2>
       <table className="all-teams-table">
         <thead>
           <tr>

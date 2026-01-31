@@ -1,0 +1,214 @@
+/* ============================================================
+   Header.css  --  Racing / eSport / Speed UI  (Mockup 1)
+   ============================================================ */
+
+/* ---------- Header Container ---------- */
+.header {
+  border: var(--border-red, 2px solid #D10000);
+  border-radius: var(--radius, 6px);
+  padding: 24px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Matte black with subtle gradient */
+  background:
+    linear-gradient(
+      180deg,
+      #1a0000 0%,
+      var(--bg-panel, #111111) 30%,
+      var(--bg-black, #050505) 100%
+    );
+
+  /* Neon red glow border + drop shadow */
+  box-shadow:
+    0 0 18px var(--red-glow, rgba(209,0,0,0.55)),
+    0 0 50px rgba(209, 0, 0, 0.12),
+    0 6px 30px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(191, 195, 199, 0.08);
+}
+
+/* Top metallic edge */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--metallic, #BFC3C7) 30%,
+    var(--white, #FFFFFF) 50%,
+    var(--metallic, #BFC3C7) 70%,
+    transparent
+  );
+  opacity: 0.30;
+}
+
+/* Diagonal speed lines behind header content */
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 18px,
+      rgba(209, 0, 0, 0.03) 18px,
+      rgba(209, 0, 0, 0.03) 20px
+    );
+  z-index: 0;
+}
+
+/* ---------- Logo ---------- */
+/* The logo is rendered as an <img> inside .header, before the title.
+   Class name: .header-logo   (add this <img> in the component)         */
+.header-logo {
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 0 auto 14px;
+  position: relative;
+  z-index: 1;
+
+  /* Glow effect around the logo */
+  filter:
+    drop-shadow(0 0 10px var(--red-glow, rgba(209,0,0,0.55)))
+    drop-shadow(0 0 28px rgba(209, 0, 0, 0.25));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.header-logo:hover {
+  filter:
+    drop-shadow(0 0 16px var(--red-glow, rgba(209,0,0,0.55)))
+    drop-shadow(0 0 50px rgba(209, 0, 0, 0.35))
+    drop-shadow(0 0 6px var(--neon-green-glow, rgba(57,255,20,0.4)));
+  transform: scale(1.03);
+}
+
+/* ---------- Title ---------- */
+.header-title {
+  margin: 0;
+  font-family: var(--font-heading, 'Bebas Neue', sans-serif);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+
+  /* Gradient text: white to metallic with red tint */
+  background: linear-gradient(
+    180deg,
+    var(--white, #FFFFFF) 0%,
+    var(--metallic, #BFC3C7) 80%,
+    var(--metallic-dark, #6D6D6D) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Text glow */
+  text-shadow: none; /* overridden by background-clip trick; glow via filter */
+  filter: drop-shadow(0 0 8px rgba(209, 0, 0, 0.35));
+}
+
+/* ---------- LIVE Badge ---------- */
+.header-live {
+  display: inline-block;
+  font-family: var(--font-heading, 'Bebas Neue', sans-serif);
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+
+  /* Neon green pulsing text */
+  color: var(--neon-green, #39FF14);
+  text-shadow:
+    0 0 6px var(--neon-green-glow, rgba(57,255,20,0.4)),
+    0 0 20px rgba(57, 255, 20, 0.2);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* Blinking red dot before LIVE */
+.header-live::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--red, #D10000);
+  box-shadow: 0 0 6px var(--red, #D10000), 0 0 16px var(--red-glow, rgba(209,0,0,0.55));
+  vertical-align: middle;
+  animation: dotBlink 1.2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.75; }
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.3; transform: scale(0.8); }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .header {
+    padding: 18px 16px;
+  }
+
+  .header-logo {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 10px;
+  }
+
+  .header-title {
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .header-live {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 14px 10px;
+    border-radius: 4px;
+  }
+
+  .header-logo {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 8px;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  .header-live {
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+  }
+
+  .header-live::before {
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+  }
+}
