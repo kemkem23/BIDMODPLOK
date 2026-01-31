@@ -1,5 +1,8 @@
 import React, { useMemo } from 'react';
+import { API_BASE } from '../config';
 import './LaneCard.css';
+
+const backendOrigin = API_BASE.replace(/\/api$/, '');
 
 function LaneCard({ label, entry }) {
   const times = entry && entry.team ? entry.times : null;
@@ -33,11 +36,14 @@ function LaneCard({ label, entry }) {
   return (
     <div className="lane-card">
       <div className="lane-label">{label}</div>
+      {team.number != null && (
+        <div className="lane-car-number">bike number {team.number}</div>
+      )}
       <div className="lane-team-info">
         <div className="lane-team-name">
           {team.name}
           {team.photo ? (
-            <img src={team.photo} alt={team.name} className="lane-team-photo" />
+            <img src={team.photo.startsWith('/') ? backendOrigin + team.photo : team.photo} alt={team.name} className="lane-team-photo" />
           ) : (
             <div className="lane-photo-placeholder">ชื่อทีม + รูปทีม</div>
           )}

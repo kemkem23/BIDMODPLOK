@@ -12,3 +12,11 @@
   font-weight: bold;
   color: #555;
 }
+@media (max-width: 480px) {
+  .video-section {
+    min-height: 120px;
+  }
+  .video-placeholder-text {
+    font-size: 1.2rem;
+  }
+}

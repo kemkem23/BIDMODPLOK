@@ -3,24 +3,24 @@
     {
       "className": "รุ่น 1 เวฟ110 ซักเดิม",
       "teams": [
-        { "id": "t1", "number": 1, "name": "ช่างอ่อ ระยอง", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
-        { "id": "t3", "number": 3, "name": "ช่างบอย นครปฐม", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
-        { "id": "t5", "number": 5, "name": "ช่างเอก กรุงเทพ", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
-        { "id": "t6", "number": 6, "name": "ช่างมิ้น ชลบุรี", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
-        { "id": "t7", "number": 7, "name": "ช่างต้น สระบุรี", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
-        { "id": "t8", "number": 8, "name": "ช่างนิด ขอนแก่น", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" }
+        { "id": "t1", "number": 1, "name": "ช่างอ่อ ระยอง", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
+        { "id": "t3", "number": 3, "name": "ช่างบอย นครปฐม", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
+        { "id": "t5", "number": 5, "name": "ช่างเอก กรุงเทพ", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
+        { "id": "t6", "number": 6, "name": "ช่างมิ้น ชลบุรี", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
+        { "id": "t7", "number": 7, "name": "ช่างต้น สระบุรี", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
+        { "id": "t8", "number": 8, "name": "ช่างนิด ขอนแก่น", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" }
       ]
     },
     {
       "className": "รุ่น 2 เวฟ110 ซัก 5",
       "teams": [
-        { "id": "t2", "number": 2, "name": "ช่างโจ๊ก ช่างข้าม", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 2 เวฟ110 ซัก 5", "photo": "" }
+        { "id": "t2", "number": 2, "name": "ช่างโจ๊ก ช่างข้าม", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 2 เวฟ110 ซัก 5", "photo": "", "tentNumber": "" }
       ]
     },
     {
       "className": "รุ่น 3 เวฟ125 ซัก 5",
       "teams": [
-        { "id": "t4", "number": 4, "name": "ช่างเล็ก สมุทรปราการ", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 3 เวฟ125 ซัก 5", "photo": "" }
+        { "id": "t4", "number": 4, "name": "ช่างเล็ก สมุทรปราการ", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 3 เวฟ125 ซัก 5", "photo": "", "tentNumber": "" }
       ]
     }
   ],
@@ -41,12 +41,12 @@
     "status": "waiting",
     "left": {
       "lane": "left",
-      "team": { "id": "t1", "number": 1, "name": "ช่างอ่อ ระยอง", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
+      "team": { "id": "t1", "number": 1, "name": "ช่างอ่อ ระยอง", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
       "times": { "qualify": 10.1234, "run1": null, "run2": null, "run3": null }
     },
     "right": {
       "lane": "right",
-      "team": { "id": "t3", "number": 3, "name": "ช่างบอย นครปฐม", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "" },
+      "team": { "id": "t3", "number": 3, "name": "ช่างบอย นครปฐม", "nickname": "", "contactPerson": "", "phone": "", "amphur": "", "className": "รุ่น 1 เวฟ110 ซักเดิม", "photo": "", "tentNumber": "" },
       "times": { "qualify": null, "run1": null, "run2": null, "run3": null }
     }
   }

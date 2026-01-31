@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { updateTeam as apiUpdateTeam } from '../services/api';
+import React, { useState, useRef } from 'react';
+import { updateTeam as apiUpdateTeam, uploadTeamPhoto } from '../services/api';
+import { API_BASE } from '../config';
 import './TeamDetailModal.css';
 
 function TeamDetailModal({ team, isAdmin, role, onClose, onSaved }) {
@@ -12,9 +13,12 @@ function TeamDetailModal({ team, isAdmin, role, onClose, onSaved }) {
     phone: team.phone || '',
     amphur: team.amphur || '',
     photo: team.photo || '',
+    tentNumber: team.tentNumber || '',
   });
   const [saving, setSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
 
   const handleChange = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -35,7 +39,27 @@ function TeamDetailModal({ team, isAdmin, role, onClose, onSaved }) {
     setTimeout(() => setSaveStatus(null), 3000);
   };
 
-  const photoSrc = form.photo || null;
+  const handlePhotoUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const result = await uploadTeamPhoto(team.id, file);
+      setForm((prev) => ({ ...prev, photo: result.photo + '?t=' + Date.now() }));
+      if (onSaved) onSaved();
+    } catch {
+      setSaveStatus('error');
+      setTimeout(() => setSaveStatus(null), 3000);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  // If photo is a relative /api/... path, prefix with backend base URL
+  const backendOrigin = API_BASE.replace(/\/api$/, '');
+  const photoSrc = form.photo
+    ? form.photo.startsWith('/') ? backendOrigin + form.photo : form.photo
+    : null;
 
   return (
     <div className="team-modal-overlay" onClick={onClose}>
@@ -53,19 +77,40 @@ function TeamDetailModal({ team, isAdmin, role, onClose, onSaved }) {
 
         {canEdit && (
           <div className="team-modal-field">
-            <label>รูปทีม (URL)</label>
+            <label>อัพโหลดรูปทีม</label>
             <input
-              type="text"
-              value={form.photo}
-              onChange={(e) => handleChange('photo', e.target.value)}
-              placeholder="https://..."
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoUpload}
+              style={{ display: 'none' }}
             />
+            <button
+              className="team-modal-upload-btn"
+              onClick={() => fileInputRef.current.click()}
+              disabled={uploading}
+            >
+              {uploading ? 'กำลังอัพโหลด...' : 'เลือกรูป'}
+            </button>
           </div>
         )}
 
         <div className="team-modal-field">
           <label>หมายเลข</label>
           <span className="team-modal-value">{team.number}</span>
+        </div>
+
+        <div className="team-modal-field">
+          <label>เต็นท์หมายเลข</label>
+          {canEdit ? (
+            <input
+              type="text"
+              value={form.tentNumber}
+              onChange={(e) => handleChange('tentNumber', e.target.value)}
+            />
+          ) : (
+            <span className="team-modal-value">{form.tentNumber || '-'}</span>
+          )}
         </div>
 
         <div className="team-modal-field">

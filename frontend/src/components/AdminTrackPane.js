@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import useLeaderboard from '../hooks/useLeaderboard';
 import { updateLeaderboard, postCurrentRace } from '../services/api';
 import './AdminTrackPane.css';
@@ -42,12 +42,25 @@ function parseTime(val) {
   return isNaN(n) ? null : n;
 }
 
+function buildSide(lane) {
+  if (!lane.matched) return { team: null, times: { qualify: null, run1: null, run2: null, run3: null } };
+  const t = {};
+  TIME_KEYS.forEach((k) => { t[k] = parseTime(lane.times[k]); });
+  return { team: lane.matched.team, times: t };
+}
+
 function AdminTrackPane() {
   const { allResults } = useLeaderboard();
   const left = useLane(allResults);
   const right = useLane(allResults);
 
-  const handleSave = useCallback(async (lane, otherLane) => {
+  const leftRef = useRef(left);
+  leftRef.current = left;
+  const rightRef = useRef(right);
+  rightRef.current = right;
+
+  const handleSave = useCallback(async (side) => {
+    const lane = side === 'left' ? leftRef.current : rightRef.current;
     if (!lane.matched) return;
     lane.setSaveStatus('saving');
     try {
@@ -55,23 +68,17 @@ function AdminTrackPane() {
       TIME_KEYS.forEach((k) => { parsedTimes[k] = parseTime(lane.times[k]); });
 
       await updateLeaderboard([{ teamId: lane.matched.team.id, times: parsedTimes }]);
-
-      const buildSide = (l) => {
-        if (!l.matched) return { team: null, times: { qualify: null, run1: null, run2: null, run3: null } };
-        const t = {};
-        TIME_KEYS.forEach((k) => { t[k] = parseTime(l.times[k]); });
-        return { team: l.matched.team, times: t };
-      };
-      await postCurrentRace({ left: buildSide(left), right: buildSide(right) });
+      await postCurrentRace({ left: buildSide(leftRef.current), right: buildSide(rightRef.current) });
 
       lane.setSaveStatus('saved');
       setTimeout(() => lane.setSaveStatus(null), 2000);
-    } catch {
+    } catch (err) {
+      console.error('Save failed:', err);
       lane.setSaveStatus('error');
     }
-  }, [left, right]);
+  }, []);
 
-  const renderLane = (label, lane, otherLane) => (
+  const renderLane = (label, lane, side) => (
     <div className="admin-track-lane">
       <div className="admin-track-lane-label">{label}</div>
       <input
@@ -101,7 +108,7 @@ function AdminTrackPane() {
           ))}
           <button
             className="admin-track-save-btn"
-            onClick={() => handleSave(lane, otherLane)}
+            onClick={() => handleSave(side)}
             disabled={lane.saveStatus === 'saving'}
           >
             {lane.saveStatus === 'saving' ? 'กำลังบันทึก...' : 'บันทึก'}
@@ -116,8 +123,8 @@ function AdminTrackPane() {
   return (
     <div className="admin-track-pane">
       <div className="admin-track-lanes">
-        {renderLane('เลนซ้าย', left, right)}
-        {renderLane('เลนขวา', right, left)}
+        {renderLane('เลนซ้าย', left, 'left')}
+        {renderLane('เลนขวา', right, 'right')}
       </div>
     </div>
   );

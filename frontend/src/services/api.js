@@ -58,6 +58,17 @@ export async function updateTeam(teamId, fields) {
   return res.json();
 }
 
+export async function uploadTeamPhoto(teamId, file) {
+  const formData = new FormData();
+  formData.append('photo', file);
+  const res = await fetch(`${API_BASE}/teams/${teamId}/photo`, {
+    method: 'POST',
+    body: formData,
+  });
+  if (!res.ok) throw new Error('Failed to upload photo');
+  return res.json();
+}
+
 export async function login(credentials) {
   const res = await fetch(`${API_BASE}/auth/login`, {
     method: 'POST',

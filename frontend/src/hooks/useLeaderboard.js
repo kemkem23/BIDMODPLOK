@@ -30,8 +30,11 @@ function useLeaderboard() {
   }, []);
 
   const handleLeaderboardUpdate = useCallback((data) => {
-    if (Array.isArray(data)) {
-      setClasses(data);
+    if (data && data.classes) {
+      setClasses(data.classes);
+    }
+    if (data && data.allResults) {
+      setAllResults(data.allResults);
     }
     setError(null);
   }, []);

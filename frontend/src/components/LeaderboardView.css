@@ -13,3 +13,11 @@
   text-align: left;
   background: #fff;
 }
+@media (max-width: 480px) {
+  .leaderboard-title {
+    font-size: 1.2rem;
+  }
+  .leaderboard-content {
+    padding: 8px;
+  }
+}

@@ -94,7 +94,7 @@ function updateCurrentRaceTimes(timesData) {
   invalidateCaches();
   saveToFile();
   broadcast('race:updated', race);
-  broadcast('leaderboard:updated', getLeaderboard());
+  broadcast('leaderboard:updated', { classes: getLeaderboard(), allResults: getAllResults() });
   return race;
 }
 
@@ -167,7 +167,7 @@ function getTeamById(teamId) {
 }
 
 function updateTeam(teamId, fields) {
-  const allowedFields = ['name', 'nickname', 'contactPerson', 'phone', 'amphur', 'photo'];
+  const allowedFields = ['name', 'nickname', 'contactPerson', 'phone', 'amphur', 'photo', 'tentNumber'];
   let updatedTeam = null;
 
   for (const cls of store.classes) {
@@ -206,6 +206,7 @@ function updateTeam(teamId, fields) {
     saveToFile();
     broadcast('team:updated', updatedTeam);
     broadcast('race:updated', store.currentRace);
+    broadcast('leaderboard:updated', { classes: getLeaderboard(), allResults: getAllResults() });
   }
   return updatedTeam;
 }
@@ -223,7 +224,7 @@ function updateResults(updates) {
   if (updated.length > 0) {
     invalidateCaches();
     saveToFile();
-    broadcast('leaderboard:updated', getLeaderboard());
+    broadcast('leaderboard:updated', { classes: getLeaderboard(), allResults: getAllResults() });
   }
   return updated;
 }

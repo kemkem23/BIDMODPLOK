@@ -1,0 +1,2 @@
+Type "ssss" to start frontend and backend and tell user the url to connect from other machine to show the frontend page.
+Type "rrrr" to restart frontend and backend and tell user the url to connect from other machine to show the frontend page.

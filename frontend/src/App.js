@@ -1,4 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { QRCodeSVG } from 'qrcode.react';
+import { API_BASE } from './config';
 import './App.css';
 import './styles/layout.css';
 import Header from './components/Header';
@@ -13,6 +15,19 @@ import useAuth from './hooks/useAuth';
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const { token, isAdmin, role, username, login, logout } = useAuth();
+
+  const [displayUrl, setDisplayUrl] = useState(null);
+
+  useEffect(() => {
+    fetch(`${API_BASE}/server-ip`)
+      .then(r => r.json())
+      .then(data => {
+        setDisplayUrl(`http://${data.ip}:${window.location.port || 3000}`);
+      })
+      .catch(() => {
+        setDisplayUrl(window.location.origin);
+      });
+  }, []);
 
   const handleLoginClick = useCallback(() => setShowLogin(true), []);
   const handleLoginClose = useCallback(() => setShowLogin(false), []);
@@ -46,6 +61,13 @@ function App() {
             </button>
           </>
         )}
+        {displayUrl && (
+          <div className="qr-section">
+            <QRCodeSVG value={displayUrl} size={140} />
+            <p className="qr-label">{displayUrl}</p>
+          </div>
+        )}
+
         {showLogin && !isAdmin && (
           <LoginModal
             onClose={handleLoginClose}

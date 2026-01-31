@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where:*)",
+      "Bash(npx create-react-app frontend)",
+      "Bash(npm install:*)",
+      "Bash(git init:*)",
+      "Bash(start npm start)",
+      "Bash(dir \"C:\\\\BIDMODPLOK\\\\mockup\")",
+      "Bash(node -e:*)",
+      "Bash(netstat:*)",
+      "Bash(npx react-scripts build)",
+      "Bash(taskkill:*)",
+      "Bash(node:*)",
+      "Bash(npm start)",
+      "Bash(curl:*)",
+      "Bash(find:*)",
+      "Bash(echo:*)",
+      "Bash(if not exist \"C:\\\\BIDMODPLOK\\\\backend\\\\models\" mkdir \"C:\\\\BIDMODPLOK\\\\backend\\\\models\")",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: full app with WebSocket, async I/O, memoization, centralized config\n\nBackend: Express + WebSocket \\(ws\\) server with compression, async file persistence\nwith 500ms debounce, leaderboard/results caching, ETag support on all GET routes,\nand broadcast on every mutation.\n\nFrontend: React app with centralized API config, WebSocket push replacing 5s polling,\nReact.memo on all components, useCallback/useMemo optimizations, and ErrorBoundary\nfor graceful error recovery.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(python3:*)",
+      "Bash(dir /s /b C:BIDMODPLOK)",
+      "Bash(netsh advfirewall firewall show rule:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -NoProfile -Command \"Invoke-WebRequest -Uri http://192.168.1.173:5000/api/health -UseBasicParsing -TimeoutSec 5 | Select-Object -ExpandProperty StatusCode\")",
+      "Bash(powershell -NoProfile -Command \"Invoke-WebRequest -Uri http://192.168.1.173:3000 -UseBasicParsing -TimeoutSec 5 | Select-Object -ExpandProperty StatusCode\")",
+      "Bash(powershell -NoProfile -Command \"Get-NetFirewallRule -Direction Inbound -Action Allow | Where-Object { $_DisplayName -match ''BIDMOD|node|react|3000|5000'' } | Format-List DisplayName,Enabled,Action,Direction\")",
+      "Bash(powershell -NoProfile -File - <<'PSEOF'\nGet-NetFirewallRule -Direction Inbound | Where-Object { $_.DisplayName -match 'BIDMOD|node|react|3000|5000' } | Format-List DisplayName,Enabled,Action\nPSEOF)",
+      "Bash(powershell -NoProfile -File -:*)",
+      "Bash(netsh advfirewall firewall add rule name=\"BIDMODPLOK Backend\" dir=in action=allow protocol=TCP localport=5000)",
+      "Bash(powershell -NoProfile -Command \"Start-Process -FilePath ''netsh'' -ArgumentList ''advfirewall firewall add rule name=\"\"BIDMODPLOK Backend\"\" dir=in action=allow protocol=TCP localport=5000'' -Verb RunAs -Wait\")",
+      "Bash(powershell -NoProfile -Command \"Start-Process -FilePath ''netsh'' -ArgumentList ''advfirewall firewall add rule name=\"\"BIDMODPLOK Frontend\"\" dir=in action=allow protocol=TCP localport=3000'' -Verb RunAs -Wait\")",
+      "Bash(dir \"C:\\\\BIDMODPLOK\\\\backend\\\\data\")",
+      "Bash(git commit:*)",
+      "Bash(npx kill-port:*)"
+    ]
+  }
+}

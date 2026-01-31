@@ -21,6 +21,27 @@ function AllTeamsTable({ allResults, isAdmin, role }) {
     }
   }, [allResults, isEditing]);
 
+  const handleSave = useCallback(async () => {
+    setSaveStatus(null);
+    try {
+      const payload = editData.map((row) => ({
+        teamId: row.teamId,
+        times: row.times,
+      }));
+      await updateLeaderboard(payload);
+      setSaveStatus('success');
+      setIsEditing(false);
+    } catch (err) {
+      setSaveStatus('error');
+    }
+    setTimeout(() => setSaveStatus(null), 3000);
+  }, [editData]);
+
+  const handleTeamClick = useCallback((e, row) => {
+    e.stopPropagation();
+    setSelectedTeam(row.team);
+  }, []);
+
   if (!allResults || allResults.length === 0) {
     return null;
   }
@@ -61,27 +82,6 @@ function AllTeamsTable({ allResults, isAdmin, role }) {
       return updated;
     });
   };
-
-  const handleSave = useCallback(async () => {
-    setSaveStatus(null);
-    try {
-      const payload = editData.map((row) => ({
-        teamId: row.teamId,
-        times: row.times,
-      }));
-      await updateLeaderboard(payload);
-      setSaveStatus('success');
-      setIsEditing(false);
-    } catch (err) {
-      setSaveStatus('error');
-    }
-    setTimeout(() => setSaveStatus(null), 3000);
-  }, [editData]);
-
-  const handleTeamClick = useCallback((e, row) => {
-    e.stopPropagation();
-    setSelectedTeam(row.team);
-  }, []);
 
   const timeFields = ['qualify', 'run1', 'run2', 'run3'];
 
