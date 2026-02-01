@@ -10,6 +10,7 @@ const leaderboardRouter = require("./routes/leaderboard");
 const authRouter = require("./routes/auth");
 const teamsRouter = require("./routes/teams");
 const { getTeamById, updateTeam } = require("./models/store");
+const ws = require("./ws");
 
 const app = express();
 
@@ -65,5 +66,48 @@ app.use("/api/races", racesRouter);
 app.use("/api/leaderboard", leaderboardRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/teams", teamsRouter);
+
+// Connection stats endpoint for monitoring
+app.get("/api/stats", (req, res) => {
+  res.json({
+    wsConnections: typeof ws.getConnectionCount === "function" ? ws.getConnectionCount() : 0,
+    uptime: process.uptime(),
+    memoryMB: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+  });
+});
+
+// --- Serve React production build ---
+// In production, the frontend is built to /frontend/build and served as static files.
+// This eliminates the React dev server, saving ~400MB RAM.
+const FRONTEND_BUILD = path.join(__dirname, "..", "frontend", "build");
+const fs = require("fs");
+
+if (fs.existsSync(path.join(FRONTEND_BUILD, "index.html"))) {
+  // Serve static assets with long cache (they have content hashes in filenames)
+  app.use(
+    "/static",
+    express.static(path.join(FRONTEND_BUILD, "static"), {
+      maxAge: "1y",
+      immutable: true,
+    })
+  );
+
+  // Serve other build files (manifest, favicon, etc.) with short cache
+  app.use(express.static(FRONTEND_BUILD, { maxAge: "10m", index: false }));
+
+  // SPA fallback: any non-API route serves index.html
+  app.get("*", (req, res) => {
+    if (req.path.startsWith("/api/")) {
+      return res.status(404).json({ error: "Not found" });
+    }
+    res.sendFile(path.join(FRONTEND_BUILD, "index.html"));
+  });
+
+  console.log("Serving frontend production build from", FRONTEND_BUILD);
+} else {
+  console.log(
+    "No frontend build found. Run 'npm run build' in /frontend to enable production serving."
+  );
+}
 
 module.exports = app;

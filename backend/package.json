@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "start:prod": "node cluster.js",
     "test": "jest --verbose --forceExit"
   },
   "keywords": [],
